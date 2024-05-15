@@ -468,13 +468,13 @@ class user:
         self.builder_.AddParameter('shopIdIndex', '1')
 
         if main.fate_region == "NA":
-            gachaSubId = GetGachaSubIdFP("NA")
+            gachaSubId = GetGachaSubIdFP("NA", self.userQuest)
             if gachaSubId is None:
                 gachaSubId = "0" 
             self.builder_.AddParameter('gachaSubId', gachaSubId)
             main.logger.info(f"\n ======================================== \n [+] 召唤卡池GachaSubId ： {gachaSubId} \n ======================================== " )
         else:
-            gachaSubId = GetGachaSubIdFP("JP")
+            gachaSubId = GetGachaSubIdFP("JP", self.userQuest)
             if gachaSubId is None:
                 gachaSubId = "0" 
             self.builder_.AddParameter('gachaSubId', gachaSubId)
