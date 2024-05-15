@@ -477,7 +477,7 @@ class user:
             gachaSubId = GetGachaSubIdFP("JP", self.userQuest)
             if gachaSubId is None:
                 gachaSubId = "0" 
-            self.builder_.AddParameter('gachaSubId', gachaSubId)
+            self.builder_.AddParameter('gachaSubId', str(gachaSubId))
             main.logger.info(f"\n ======================================== \n [+] 召唤卡池GachaSubId ： {gachaSubId} \n ======================================== " )
 
         data = self.Post(
