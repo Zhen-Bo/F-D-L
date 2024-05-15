@@ -130,6 +130,7 @@ class user:
         self.user_id_ = (int)(user_id)
         self.s_ = fgourl.NewSession()
         self.builder_ = ParameterBuilder(user_id, auth_key, secret_key)
+        self.userQuest = []
 
     def Post(self, url):
         res = fgourl.PostReq(self.s_, url, self.builder_.Build())
@@ -399,6 +400,9 @@ class user:
         )
 
         DataWebhook.append(login)
+
+        for questInfo in data['cache']['replaced'].get('userQuest', []):
+            self.userQuest.append(questInfo)  # can implement a paydantic model here
 
         if 'seqLoginBonus' in data['response'][0]['success']:
             bonus_message = data['response'][0]['success']['seqLoginBonus'][0]['message']
